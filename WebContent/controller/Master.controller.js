@@ -6,9 +6,8 @@ sap.ui.define([
 	"sap/ui/model/odata/ODataModel",
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator",   
-	"sap/ui/core/BusyIndicator",
 	"sap/ui/core/BusyIndicator"
-], function(Controller, MessageToast, MessageBox, JSONModel, ODataModel, Filter, FilterOperator, BusyIndicator, BusyIndicator2) {
+], function(Controller, MessageToast, MessageBox, JSONModel, ODataModel, Filter, FilterOperator, BusyIndicator ) {
 	"use strict";
 	return Controller.extend("Press_Shop_Fiori.controller.Master", {
 
