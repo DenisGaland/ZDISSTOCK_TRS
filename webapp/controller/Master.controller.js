@@ -12,8 +12,8 @@ sap.ui.define([
 	return Controller.extend("Press_Shop_Fiori.controller.Master", {
 
 		onInit: function() {
-			//var oView = this.getView();
 			this.GetData();
+			this.getOwnerComponent().getModel("ALLPLANTS").setSizeLimit(300);
 			//var oController = this;
 			/*var osite = oView.byId("__PLANT");
 			var URL = "/sap/opu/odata/sap/ZGET_PLANT_SRV/";
