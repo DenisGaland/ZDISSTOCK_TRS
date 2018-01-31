@@ -3,26 +3,28 @@
 	controllerName="Press_Shop_Fiori.controller.Master" html="http://www.w3.org/1999/xhtml" displayBlock="true">
 	<m:App>
 		<m:pages>
-			<m:Page showHeader="false">
+			<m:Page showHeader="false" title="{i18n>title}" binding="{GETPLANT>/S_T001WSet('03')}" class="sapUiSizeCompact sapUiTinyMargin">
 				<!-- enableScrolling="true" class="sapUiContentPadding"-->
 				<m:content>
+					<sap.ui.core:Icon src="sap-icon://home" size="2em" xmlns:sap.ui.core="sap.ui.core" id="__icon0"/>
+					<m:Label text="{GETPLANT>EPlant} {GETPLANT>ET001w/Name1}"  design="Bold"/>
 					<!-- Begin Header -->
 					<m:Label text="{i18n>confirm}" width="100%" id="CONFIRM" visible="false"/>
 					<m:Label text="{i18n>yes}" width="100%" id="YES" visible="false"/>
 					<m:Label text="{i18n>no}" width="100%" id="NO" visible="false"/>
-					<m:HBox width="100%" id="Type" alignContent="Start" alignItems="Center">
+					<!--<m:HBox width="100%" id="Type" alignContent="Start" alignItems="Center">
 						<m:items>
 							<m:HBox width="5%" id="Spa" alignContent="Start" alignItems="Center"/>
 							<m:Label text="{i18n>str}" width="100%" design="Bold"/>
 						</m:items>
-					</m:HBox>
-					<m:HBox width="100%" id="H_PLANT" alignContent="Start" alignItems="Center" visible="true">
+					</m:HBox>-->
+					<!--<m:HBox width="100%" id="H_PLANT" alignContent="Start" alignItems="Center" visible="true">
 						<m:items>
 							<m:Label text="{i18n>site}" width="100%" design="Bold" textAlign="Center"/>
 							<m:HBox width="5.5%" id="Space6" alignContent="Start" alignItems="Center"/>
 							<m:SearchField width="100%" id="__PLANT" enabled="false" placeholder=""/>
 						</m:items>
-					</m:HBox>
+					</m:HBox>-->
 					<!--<m:HBox width="100%" id="DC" alignContent="Start" alignItems="Center" visible="true">
 				<m:items>
 					<m:Label text="{i18n>fromsite}" width="100%" id="__label" design="Bold" textAlign="Center"/>
@@ -33,8 +35,8 @@
 					<m:HBox width="100%" id="DCDrop" alignContent="Start" alignItems="Center" visible="true">
 						<m:Label text="{i18n>fromsite}" width="100%" id="__labeldc" design="Bold" textAlign="Center"/>
 						<m:HBox width="3%" alignContent="Start" alignItems="Center"/>
-						<m:Select id="DC_Drop_In" items="{/PlantsSet}">
-							<c:Item text="{Werks}-{Name}"/>
+						<m:Select id="DC_Drop_In" forceSelection="false" items="{ALLPLANTS>/PlantsSet}">
+							<c:Item text="{ALLPLANTS>Werks}-{ALLPLANTS>Name}"/>
 						</m:Select>
 					</m:HBox>
 					<!-- End Header -->
@@ -70,12 +72,12 @@
 								<m:Column width="0.5rem" class="yellow">
 									<m:Label text="{i18n>stock}"/>
 								</m:Column>
-								<m:Column width="0.5rem">
+								<!--<m:Column width="0.5rem">
 									<m:Label text="{i18n>pac}"/>
 								</m:Column>
 								<m:Column width="0.5rem">
 									<m:Label text="{i18n>ounit}"/>
-								</m:Column>
+								</m:Column>-->
 								<m:Column width="0.5rem">
 									<m:Label text="{i18n>qty}"/>
 								</m:Column>
@@ -90,8 +92,8 @@
 										<m:Text text="{itemModel>Gtin}"/>
 										<m:Text text="{itemModel>maktx}"/>
 										<m:Text text="{itemModel>Labst_f} EA" class="bold"/>
-										<m:Text text="{itemModel>Umrez}" class="bold"/>
-										<m:Text text="{itemModel>BSTME}" class="bold"/>
+										<!--<m:Text text="{itemModel>Umrez}" class="bold"/>
+										<m:Text text="{itemModel>BSTME}" class="bold"/>-->
 										<m:Text text="{itemModel>Menge_f}" class="bold"/>
 										<!--<m:Button text="" width="5rem" icon="sap-icon://negative" tooltip="Recept selected items" press="getContextByIndexn" type="Reject"/>
 								<m:Button text="" width="5rem" icon="sap-icon://positive" tooltip="Recept selected items" press="getContextByIndexp" type="Accept"/>-->

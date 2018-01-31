@@ -1,6 +1,25 @@
 {
   "run": [
     {
+      "filePath": "/webapp/index.html",
+      "previewMode": 1,
+      "dataMode": 1,
+      "workspace": "withoutWorkspace",
+      "ui5ActiveVersion": null,
+      "ui5VerSource": null,
+      "isDefaultVersion": 0,
+      "urlParameters": [],
+      "hashParameter": "",
+      "backendSystem": [],
+      "urlParametersNotNeeded": false,
+      "_metadata": {
+        "runnerId": "webapprunner",
+        "id": 1963504,
+        "displayName": "Run index.html 1",
+        "lastRunTimeStamp": 1517390319109
+      }
+    },
+    {
       "filePath": "/WebContent/index.html",
       "previewMode": 1,
       "dataMode": 1,
@@ -16,7 +35,7 @@
         "runnerId": "webapprunner",
         "id": 2872268,
         "displayName": "Run index.html",
-        "lastRunTimeStamp": 1513090396985
+        "lastRunTimeStamp": 1517325567880
       }
     }
   ]

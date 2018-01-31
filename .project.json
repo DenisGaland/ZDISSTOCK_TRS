@@ -1,6 +1,6 @@
 {
   "mockpreview": {
-    "mockUri": "",
+    "mockUri": "/sap/opu/odata/sap/ZGET_PLANT_SRV",
     "metadataFilePath": "",
     "loadJSONFiles": false,
     "loadCustomRequests": false,
@@ -9,5 +9,12 @@
   "deploy": {
     "destination": "Distriplus",
     "name": "ZDISSTOCK_TRS"
-  }
+  },
+  "generation": [
+    {
+      "templateId": "servicecatalog.connectivityComponent",
+      "templateVersion": "0.0.0",
+      "dateTimeStamp": "Tue, 30 Jan 2018 14:27:53 GMT"
+    }
+  ]
 }

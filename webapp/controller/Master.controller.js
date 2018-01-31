@@ -12,15 +12,17 @@ sap.ui.define([
 	return Controller.extend("Press_Shop_Fiori.controller.Master", {
 
 		onInit: function() {
-			var oView = this.getView();
-			var oController = this;
-			var osite = oView.byId("__PLANT");
+			//var oView = this.getView();
+			this.GetData();
+			//var oController = this;
+			/*var osite = oView.byId("__PLANT");
 			var URL = "/sap/opu/odata/sap/ZGET_PLANT_SRV/";
 			var OData = new ODataModel(URL, true);
 			var query = "/S_T001WSet(Type='01')";
 			BusyIndicator.show();
 			OData.read(query, null, null, true, function(response) {
 				BusyIndicator.hide();
+				debugger;
 				var Open = response.Open;
 				var plant = response.EPlant;
 				var name1 = response.ET001w.Name1;
@@ -33,7 +35,7 @@ sap.ui.define([
 				var oFilter = new Filter(filters, true);
 				var oBinding = oView.byId("DC_Drop_In").getBinding("items");
 				oBinding.filter(oFilter);
-				oView.byId("DC_Drop_In").getModel().setSizeLimit(1000);
+				oView.byId("DC_Drop_In").getModel().setSizeLimit(300);
 				if (Open === "X") {
 					oController.GetData();
 				}
@@ -43,7 +45,7 @@ sap.ui.define([
 					oView.byId("SearchArt").focus();
 				});
 				console.log("Error: " + error.response.body.toString());
-			});
+			});*/
 		},
 
 		getContextByIndexn: function(oEvent) {
@@ -128,9 +130,6 @@ sap.ui.define([
 		},
 		GetData: function(material, from) {
 			var oView = this.getView();
-			var oTable = oView.byId("table1");
-			oTable.setVisible(true);
-			oView.byId("TOOL_BAR").setVisible(true);
 			var searchString = "A" + material + "/" + "01" + from;
 			material = oView.byId("SearchArt").setValue("");
 			var URL = "/sap/opu/odata/sap/ZPREPARE_FLUX_SRV/ItemsSet?$filter=Zfilter " + "%20eq%20" + "%27" + searchString + "%27&$format=json";
@@ -140,22 +139,27 @@ sap.ui.define([
 				BusyIndicator.hide();
 				var newArray = response.results;
 				var lines = newArray.length;
-				var sum = parseInt(response.results[0].Menge);
-				for (var i = 1; i < response.results.length; i++) {
-					if (i < response.results.length) {
-						sum = parseInt(response.results[i].Menge) + sum;
+				if (response.results[0] != null) {
+					var oTable = oView.byId("table1");
+					oTable.setVisible(true);
+					oView.byId("TOOL_BAR").setVisible(true);
+					var sum = parseInt(response.results[0].Menge);
+					for (var i = 1; i < response.results.length; i++) {
+						if (i < response.results.length) {
+							sum = parseInt(response.results[i].Menge) + sum;
+						}
 					}
+					var model2 = new JSONModel({
+						"Sum": sum,
+						"Products": lines
+					});
+					oView.setModel(model2, "Model2");
+					var model = new JSONModel({
+						"items": newArray
+					});
+					model.setSizeLimit(100);
+					oView.setModel(model, "itemModel");
 				}
-				var model2 = new JSONModel({
-					"Sum": sum,
-					"Products": lines
-				});
-				oView.setModel(model2, "Model2");
-				var model = new JSONModel({
-					"items": newArray
-				});
-				model.setSizeLimit(100);
-				oView.setModel(model, "itemModel");
 				jQuery.sap.delayedCall(500, this, function() {
 					oView.byId("SearchArt").focus();
 				});
