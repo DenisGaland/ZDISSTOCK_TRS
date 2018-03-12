@@ -130,6 +130,9 @@ sap.ui.define([
 		},
 		GetData: function(material, from) {
 			var oView = this.getView();
+			if (from == undefined) {
+				from = "+";
+			}
 			var searchString = "A" + material + "/" + "01" + from;
 			material = oView.byId("SearchArt").setValue("");
 			var URL = "/sap/opu/odata/sap/ZPREPARE_FLUX_SRV/ItemsSet?$filter=Zfilter " + "%20eq%20" + "%27" + searchString + "%27&$format=json";
